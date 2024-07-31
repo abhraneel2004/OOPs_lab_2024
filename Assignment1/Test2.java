@@ -1,14 +1,8 @@
-
+import java.lang.Math;
 class GCD{
     static int res;
     public static void gcdcalc(int a, int b){
-        int t;
-        if (a>b){
-            t=b;
-        }
-        else{
-            t=a;
-        }
+        int t = Math.min(a,b);
         
         for(int i = 1; i<=t; i++){
             if (a%i==0 && b%i==0){
