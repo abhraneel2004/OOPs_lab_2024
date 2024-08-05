@@ -28,7 +28,6 @@ class Employee{
 	
 	void display(){
 		System.out.println("Pan Number: "+pan);
-		System.out.println("Name: "+name);
 		System.out.println("Taxable Income: "+taxincome);
 		System.out.println("Tax: "+tax);
 	}
