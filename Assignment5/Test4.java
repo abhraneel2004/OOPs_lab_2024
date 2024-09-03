@@ -1,51 +1,51 @@
-
-class Animal{
-	int legs;
-	int eyes;
-	boolean alive;
-	Animal(int l, int e, boolean a){
-		legs=l;
-		eyes=e;
-		alive=a;
+class Animal {
+    Animal(){
+        System.out.println("An animal is created.");
 	}
-	void movement(){
-		System.out.println("I can move");
+    void sound(){
+        System.out.println("Animal makes a sound");
 	}
 }
-class Carnivore extends Animal{
-	String diet;
-	Carnivore(int l, int e, boolean a, String d){
-		super(l,e,a);
-		diet=d;
+class Dog extends Animal {
+    Dog() {
+        super(); // Calls the constructor of the superclass (Animal)
+        System.out.println("A dog is created.");
+    }
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+class Puppy extends Dog {
+    Puppy() {
+        super(); // Calls the constructor of the superclass (Dog)
+        System.out.println("A puppy is created.");
+    }
+    @Override
+    void sound(){
+        System.out.println("Puppy yaps");
 	}
-	void showDiet(){
-		System.out.println("I eat "+diet);
-	}
-	void movement(){
-		System.out.println("I can run");
+    void behavior(){
+        System.out.println("Puppy is playful");
 	}
 }
-class Lion extends Carnivore{
-	String loc;
-	String name;
-	Lion(int l, int e, boolean a, String d, String loc, String name){
-		super(l,e,a,d);
-		this.loc=loc;
-		this.name=name;
-	}
-	void greeting(){
-		System.out.println("I am "+name+", the King of Jungle");
-	}
-	void movement(){
-		System.out.println("I can hunt in "+loc);
-	}
-}
-
-public class Test4{
-	public static void main(String[] args){
-		Lion l1 = new Lion(4, 2,true, "meat", "Africa", "Mufasa");
-		l1.greeting();
-		l1.showDiet();
-		l1.movement();
-	}
+public class Test4 {
+    public static void main(String[] args) {
+        System.out.println("Single Inheritance:");
+        Dog dog = new Dog();
+        dog.sound();
+        System.out.println("\nMultilevel Inheritance:");
+        Puppy puppy = new Puppy();
+        puppy.sound();  
+        puppy.behavior();
+        System.out.println("\nUsing 'super' keyword:");
+        Dog anotherDog = new Dog() {
+            @Override
+            void sound() {
+                super.sound();
+                System.out.println("Another dog barks differently");
+            }
+        };
+        anotherDog.sound();
+    }
 }
