@@ -1,35 +1,26 @@
-//Write a java program to implement runtime polymorphism (e.g., Figure, Rectangle & Triangle).
-
-class Figure{
-	int d1;
-	int d2;
-	Figure(int d1, int d2){
-		this.d1=d1;
-		this.d2=d2;
-	}
-	int getArea(){
-		return 0;
-	}
+interface Figure{
+	int getArea();
 }
-
-class Rectangle extends Figure{
+class Rectangle implements Figure{
+	int l,b;
 	Rectangle(int length, int breadth){
-		super(length, breadth);
+		l=length;
+		b=breadth;
 	}
-	int getArea(){
-		return d1*d2;
+	public int getArea(){
+		return l*b;
 	}
 }
-
-class Triangle extends Figure{
+class Triangle implements Figure{
+	int b,h;
 	Triangle(int base, int height){
-		super(base, height);
+		b = base;
+		h = height;
 	}
-	int getArea(){
-		return d1*d2/2;
+	public int getArea(){
+		return b*h/2;
 	}
 }
-
 public class Test5{
 	public static void main(String[] args){
 		Figure ref = new Rectangle(10,20);
